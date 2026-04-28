@@ -1,0 +1,211 @@
+<mxfile host="Electron">
+  <diagram name="Страница-1" id="v7FSZ1-WMZFNIHWTDXvu">
+    <mxGraphModel dx="3398" dy="2713" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;API Getway&lt;/b&gt;&lt;div&gt;&lt;i&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Единая точка входа&lt;/font&gt;&lt;/i&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="360" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;User Service&lt;/b&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;i&gt;Управление пользователями&lt;/i&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="820" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Cargo Service&lt;/b&gt;&lt;div&gt;&lt;i&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Управление грузами&lt;/font&gt;&lt;/i&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="50" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-4" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;size=20;position=0.07;position2=0.07;align=left;" value="&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;line-height: 80%; font-size: 8px;&quot;&gt;&lt;b&gt;Отвечает за:&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;line-height: 80%; font-size: 8px;&quot;&gt;- Хранит информацию о всех пользователях&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;line-height: 80%; font-size: 8px;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;системы (люди, физ. лица);&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;line-height: 80%; font-size: 8px;&quot;&gt;- Хранит всех юр лиц системы;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="270" x="990" y="-20" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-5" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-2" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=18.900000000000002;entryDy=80;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="W8XLXD8PlgoqHmv2phKu-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="820" y="200" as="sourcePoint" />
+            <mxPoint x="870" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Transport Service&lt;/b&gt; &lt;i&gt;Управление транспортом&lt;/i&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-7" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;size=20;position=0.07;position2=0.07;align=left;" value="&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px; line-height: 80%;&quot;&gt;&lt;b&gt;Отвечает за:&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px; line-height: 80%;&quot;&gt;- Управление транспортными средствами&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px; line-height: 80%;&quot;&gt;-&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Отслеживание статуса транспорта (AVAILABLE, IN_USE, MAINTENANCE)&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px; line-height: 80%;&quot;&gt;-&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Проверка грузоподъемности&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="440" x="800" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-8" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-6" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=30.800000000000004;entryDy=80;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="W8XLXD8PlgoqHmv2phKu-7" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="701.1" y="890" as="sourcePoint" />
+            <mxPoint x="770.1" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-9" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;size=20;position=0.07;position2=0.07;align=left;" value="&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;line-height: 80%;&quot;&gt;&lt;span style=&quot;font-size: 7px;&quot;&gt;&lt;b&gt;- Маршрутизация запросов к соответствующим микросервисам&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;line-height: 80%;&quot;&gt;&lt;span style=&quot;font-size: 7px;&quot;&gt;&lt;b&gt;- Логирование всех запросов&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 7px; line-height: 80%;&quot;&gt;&lt;b&gt;- Аутентификация&lt;/b&gt;:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 7px; line-height: 80%;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&amp;nbsp; - JWT tokens через API Gateway&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 7px; line-height: 80%;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&amp;nbsp; - OAuth2 с Keycloak&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;font style=&quot;font-size: 7px; line-height: 80%;&quot;&gt;&lt;b&gt;- Авторизация&lt;/b&gt;:&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 7px; line-height: 80%;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&amp;nbsp; - RBAC (Role-Based Access Control)&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 7px; line-height: 80%;&quot;&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&amp;nbsp; - Роли: SERVICE, ADMIN, DISPATCHER, DRIVER, CLIENT&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="270" x="530" y="-70" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-10" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-1" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=18.900000000000002;entryDy=100;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="W8XLXD8PlgoqHmv2phKu-9" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="491.1" y="90" as="sourcePoint" />
+            <mxPoint x="560.1" y="50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Notification Service&lt;/b&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;i&gt;Управление уведомле-ниями (рассылки)&lt;/i&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="560" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-12" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;size=20;position=0.07;position2=0.07;align=left;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;- Управление транспортными средствами&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;-&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Отслеживание статуса транспорта (AVAILABLE, IN_USE, MAINTENANCE)&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;-&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Проверка грузоподъемности&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="440" x="780" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-13" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;size=20;position=0.07;position2=0.07;align=left;" value="&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px; line-height: 80%;&quot;&gt;&lt;b&gt;Отвечает за:&lt;br&gt;&lt;/b&gt;- CRUD операции с грузами;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px; line-height: 80%;&quot;&gt;-&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Хранение информации о грузе (вес, отправитель, получатель);&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px; line-height: 80%;&quot;&gt;-&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Валидация данных груза;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="270" x="770" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-15" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-3" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=18.900000000000002;entryDy=80;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="W8XLXD8PlgoqHmv2phKu-13" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="680" y="670" as="sourcePoint" />
+            <mxPoint x="749" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-16" parent="1" style="shape=card;whiteSpace=wrap;html=1;align=left;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 6px; line-height: 80%;&quot;&gt;GET&amp;nbsp; &amp;nbsp; /api/v1/transports/{id}&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; - получить транспорт&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 6px; line-height: 80%;&quot;&gt;GET&amp;nbsp; &amp;nbsp; /api&lt;/font&gt;&lt;span style=&quot;font-size: 6px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/v1&lt;/span&gt;&lt;span style=&quot;font-size: 6px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/transports/available&amp;nbsp; &amp;nbsp;- список доступного транспорта&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 6px; line-height: 80%;&quot;&gt;POST&amp;nbsp; &amp;nbsp;/api&lt;/font&gt;&lt;span style=&quot;font-size: 6px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/v1&lt;/span&gt;&lt;span style=&quot;font-size: 6px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/transports&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;- добавить транспорт&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 6px; line-height: 80%;&quot;&gt;PATCH&amp;nbsp; /api&lt;/font&gt;&lt;span style=&quot;font-size: 6px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/v1&lt;/span&gt;&lt;span style=&quot;font-size: 6px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;/transports/{id}/status - изменить статус&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="60" width="260" x="1080" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-17" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-13" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;exitX=0;exitY=0;exitDx=270;exitDy=30;exitPerimeter=0;" target="W8XLXD8PlgoqHmv2phKu-16" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1020" y="680" as="sourcePoint" />
+            <mxPoint x="1070" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Delivery Service&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;i&gt;Основной микросервис&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="360" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-22" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;size=20;position=0.07;position2=0.07;align=left;" value="&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px; line-height: 80%;&quot;&gt;&lt;b&gt;Отвечает за:&lt;br&gt;&lt;/b&gt;-&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;background-color: transparent; font-size: 8px;&quot;&gt;Создание и управление доставками&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;- Оркестрация бизнес-процессов&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 8px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Взаимодействие с другими сервисами через Feign Client&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 8px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Публикация событий в Kafka&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="270" x="940" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-23" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-21" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=18.900000000000002;entryDy=80;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="W8XLXD8PlgoqHmv2phKu-22" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="480" y="330" as="sourcePoint" />
+            <mxPoint x="549" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-24" parent="1" style="shape=card;whiteSpace=wrap;html=1;align=left;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;&lt;b&gt;Сценарий создания доставки&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;/blockquote&gt;&lt;/blockquote&gt;&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;1. Клиент POST /api/deliveries&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;&amp;nbsp; &amp;nbsp;↓&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;2. Delivery Service проверяет груз через Cargo Service&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;&amp;nbsp; &amp;nbsp;↓&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;3. Запрашивает стоимость через Cost Service&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;&amp;nbsp; &amp;nbsp;↓&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;4. Сохраняет доставку в БД&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;&amp;nbsp; &amp;nbsp;↓&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;5. Публикует событие &quot;DELIVERY_CREATED&quot; в Kafka&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;&amp;nbsp; &amp;nbsp;↓&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;6. Notification Service отправляет уведомление&lt;/font&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="150" width="290" x="1250" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-25" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-22" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;exitX=0;exitY=0;exitDx=270;exitDy=30;exitPerimeter=0;" target="W8XLXD8PlgoqHmv2phKu-24" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1190" y="370" as="sourcePoint" />
+            <mxPoint x="1240" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-26" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Cost Calculation&amp;nbsp;Service&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;i&gt;Рассчет стоимости&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="560" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-27" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;size=20;position=0.07;position2=0.07;align=left;" value="&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px; line-height: 80%;&quot;&gt;&lt;b&gt;Отвечает за:&lt;br&gt;&lt;/b&gt;-&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;background-color: transparent; font-size: 8px;&quot;&gt;Расчет стоимости доставки по формуле&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 8px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Учет различных факторов (вес, расстояние, тип груза)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 8px;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 8px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Кэширование результатов&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="270" x="770" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-28" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-26" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=18.900000000000002;entryDy=80;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="W8XLXD8PlgoqHmv2phKu-27" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="680" y="490" as="sourcePoint" />
+            <mxPoint x="749" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-29" parent="1" style="shape=card;whiteSpace=wrap;html=1;align=left;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;Стоимость = Базовая ставка(100) +&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; (Вес × Коэф. веса(10)) +&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; (Расстояние × Коэф. расстояния(5)) +&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 8px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; (Коэф. срочности, если экспресс-доставка)&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="60" width="260" x="1080" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-30" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-27" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;exitX=0;exitY=0;exitDx=270;exitDy=30;exitPerimeter=0;" target="W8XLXD8PlgoqHmv2phKu-29" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1020" y="500" as="sourcePoint" />
+            <mxPoint x="1070" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-36" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-11" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=30.800000000000004;entryDy=80;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="W8XLXD8PlgoqHmv2phKu-12" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="670" y="1080" as="sourcePoint" />
+            <mxPoint x="821" y="1080" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-37" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;b&gt;Report Service&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;i&gt;Сервис отчетностей&lt;/i&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-38" parent="1" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;size=20;position=0.07;position2=0.07;align=left;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;&lt;b&gt;Ответствечает за:&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 10px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Генерация отчетов&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 10px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Агрегация данных из других сервисов&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 10px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Кэширование отчетов&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="440" x="780" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-39" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-37" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=30.800000000000004;entryDy=80;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="W8XLXD8PlgoqHmv2phKu-38" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="670" y="1250" as="sourcePoint" />
+            <mxPoint x="821" y="1250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-41" parent="1" style="shape=card;whiteSpace=wrap;html=1;align=left;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;span style=&quot;font-size: 6px;&quot;&gt;&lt;b&gt;Типы отчетов:&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 6px;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 6px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Статусный отчет: количество доставок по статусам&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 6px;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 6px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Финансовый отчет: общая сумма доставок за период&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 6px;&quot;&gt;-&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 6px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Эффективность: среднее время доставки&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="60" width="260" x="1280" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-42" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-38" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;exitX=0;exitY=0;exitDx=440;exitDy=30;exitPerimeter=0;" target="W8XLXD8PlgoqHmv2phKu-41" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1120" y="1230" as="sourcePoint" />
+            <mxPoint x="1251" y="1230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-43" parent="1" style="shape=card;whiteSpace=wrap;html=1;align=left;" value="&lt;blockquote style=&quot;margin: 0 0 0 40px; border: none; padding: 0px;&quot;&gt;&lt;div style=&quot;line-height: 80%;&quot;&gt;&lt;div&gt;&lt;span style=&quot;font-size: 6px; line-height: 80%;&quot;&gt;&lt;b&gt;notification-events&lt;/b&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 6px; line-height: 80%;&quot;&gt;&amp;nbsp; &amp;nbsp;- EMAIL_TO_SEND&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 6px; line-height: 80%;&quot;&gt;&amp;nbsp; &amp;nbsp;- SMS_TO_SEND&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 6px; line-height: 80%;&quot;&gt;&amp;nbsp; &amp;nbsp;- PUSH_TO_SEND&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/blockquote&gt;" vertex="1">
+          <mxGeometry height="60" width="260" x="1320" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-44" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-12" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=30;entryPerimeter=0;exitX=0;exitY=0;exitDx=440;exitDy=30;exitPerimeter=0;" target="W8XLXD8PlgoqHmv2phKu-43" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1230" y="1010" as="sourcePoint" />
+            <mxPoint x="1290" y="1010" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;&quot;&gt;&lt;b&gt;Мониторинг и observability&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;i&gt;Технолог&lt;/i&gt;ии:&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; - Prometheus (метрики)&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; - Grafana (дашборды)&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; - Jaeger (трассировка)&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; - ELK Stack (логи)&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;Метрики для мониторинга:&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; - Время ответа сервисов&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; - Количество ошибок&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; - Загрузка CPU/Память&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; - Размер очередей Kafka&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&amp;nbsp; - Частота создания&lt;i&gt; доставок&lt;/i&gt;&lt;/div&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="273" x="707" y="1370" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-47" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-1" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="W8XLXD8PlgoqHmv2phKu-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="390" as="sourcePoint" />
+            <mxPoint x="430" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-48" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-1" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="W8XLXD8PlgoqHmv2phKu-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="630" as="sourcePoint" />
+            <mxPoint x="430" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-49" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-1" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="W8XLXD8PlgoqHmv2phKu-21" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="630" as="sourcePoint" />
+            <mxPoint x="430" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-50" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-1" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="W8XLXD8PlgoqHmv2phKu-37" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="630" as="sourcePoint" />
+            <mxPoint x="430" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-51" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;rotation=90;" value="" vertex="1">
+          <mxGeometry height="280" width="70" x="-390" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-52" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-21" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=202.5;entryPerimeter=0;" target="W8XLXD8PlgoqHmv2phKu-51" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="210" y="340" as="sourcePoint" />
+            <mxPoint x="-100" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-53" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-26" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="W8XLXD8PlgoqHmv2phKu-51" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="210" y="340" as="sourcePoint" />
+            <mxPoint x="-100" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-54" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-6" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=77.5;entryPerimeter=0;" target="W8XLXD8PlgoqHmv2phKu-51" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="210" y="340" as="sourcePoint" />
+            <mxPoint x="-100" y="860" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-55" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-21" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="W8XLXD8PlgoqHmv2phKu-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="510" y="460" as="sourcePoint" />
+            <mxPoint x="160" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="W8XLXD8PlgoqHmv2phKu-56" edge="1" parent="1" source="W8XLXD8PlgoqHmv2phKu-21" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="W8XLXD8PlgoqHmv2phKu-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="510" y="460" as="sourcePoint" />
+            <mxPoint x="160" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
