@@ -65,14 +65,15 @@
     _ответ:_ Нет, при попытке сделать `available=false`, если есть активное назначение, система должна запретить (статус `409`).
 
 | Метод  | Эндпоинт                                          | Описание                                                                                                             | Роль                                 |
-| ------ | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| ------ |---------------------------------------------------|----------------------------------------------------------------------------------------------------------------------| ------------------------------------ |
 | POST   | `/api/v1/drivers`                                 | Создать профиль водителя (из тела). Возвращает DTO объекта водитель.                                                 | `SUPERVISOR`                         |
-| GET    | `/api/v1/drivers/{driverId}`                      | Получить профиль водителя по ID.Возвращает DTO объекта водитель.                                                     | `DRIVER` (только свой), `SUPERVISOR` |
+| GET    | `/api/v1/drivers/{driverId}`                      | Получить профиль водителя по ID. Возвращает DTO объекта водитель.                                                    | `DRIVER` (только свой), `SUPERVISOR` |
 | PUT    | `/api/v1/drivers/{driverId}`                      | Обновить профиль водителя (имя, категория прав и т.д.). Возвращает DTO объекта водитель.                             | `DRIVER` (себя), `SUPERVISOR`        |
 | DELETE | `/api/v1/drivers/{driverId}`                      | Удалить профиль водителя (если нет активных назначений).<br>Ничего не возвращает.                                    | `SUPERVISOR`                         |
 | PATCH  | `/api/v1/drivers/{driverId}/status`               | Сменить статус водителя (`active`/`blocked`). Возвращает DTO объекта водитель.                                       | `SUPERVISOR`                         |
 | PATCH  | `/api/v1/drivers/{driverId}/availability`         | Сменить доступность (`available`/`unavailable`). Возвращает DTO объекта водитель.                                    | `DRIVER` (себя), `SUPERVISOR`        |
 | GET    | `/api/v1/drivers?category=C`                      | Список водителей с фильтрацией (по категории, доступности и т.д.). Возвращает список DTO объекта водитель.           | `SUPERVISOR`                         |
+| GET    | `/api/v1/drivers?available=true/false`            | Список свободных/занятых водителей. Возвращает список DTO объекта водитель.                                          | `SUPERVISOR`                         |
 | GET    | `/api/v1/drivers/{driverId}/assignments`          | История назначений водителя на ТС (транспорт, дата, длительность). Возвращает список объектов назначения (см. ниже). | `DRIVER` (себя), `SUPERVISOR`        |
 | GET    | `/api/v1/drivers/{driverId}/current-transport`    | Какое ТС сейчас назначено на заданного водителя. Возвращает  объект назначения (см. ниже).                           | `DRIVER` (себя), `SUPERVISOR`        |
 | GET    | `/api/v1/drivers/{driverId}/available-transports` | Какие ТС доступны для заданного назначения (по категории прав). Возвращает список объектов назначения (см. ниже).    | `DRIVER` (себя)                      |
@@ -91,7 +92,7 @@
 {
   "driverId": "123",
   "userId": "usr_123",
-  "userName": "Иван Петров", // для простоты, или протсо имя
+  "userName": "Иван Петров", // имя+фамилия или прозвище, для простоты
   "licenseCategory": "CE",
   "verified": true,
   "active": true,
@@ -109,6 +110,90 @@
 - `404 Not Found` — водитель не найден    
 - `409 Conflict` — нарушение бизнес-правила (например, userId уже является водителем; или удаление при активном назначении)
 
+---
+## **Транспортное средство** (ТС  / Vehicle)
+**Бизнес-правила:**
+1. Транспорт имеет тип (`CAR` / `TRUCK`)    
+2. Транспорт имеет статус (`AVAILABLE` / `ON_ASSIGNMENT` / `MAINTENANCE`)    
+3. Тип ТС определяет нужную категорию прав водителя:    
+    - `CAR` → нужна категория `B`        
+    - `TRUCK` → нужна категория `C` или `CE`
+
+**Связь с назначением** (как работает)
+При успешном вызове `PUT /transports/{id}/assign` (из предыдущей таблицы):
+1. Статус ТС меняется: `AVAILABLE` → `ON_ASSIGNMENT`    
+2. При `DELETE /transports/{id}/assign`:    
+    - Статус возвращается: `ON_ASSIGNMENT` → `AVAILABLE`        
+При попытке назначить водителя на ТС со статусом `MAINTENANCE` → `409 Conflict`
+При попытке перевести ТС в `MAINTENANCE`, если статус `ON_ASSIGNMENT` → `409 Conflict`
+
+**Объект ТС**
+```json
+{
+  "transportId": "123", // уникальный ID
+  "name": "ГАЗель NEXT", // понятное название (для UI)
+  "type": "TRUCK", // `CAR` или `TRUCK`
+  "status": "AVAILABLE", //  `AVAILABLE`, `ON_ASSIGNMENT`, `MAINTENANCE`
+  "licensePlate": "A 12-34 BI3" // госномер
+}
+```
+
+**DTO объекта ТС**
+- **CreateVehicleRequest**
+```json
+{
+  "name": "ГАЗель NEXT",
+  "type": "TRUCK",
+  "licensePlate": "А123ВЕ777"
+}
+```
+
+- **VehicleResponse** (для списков и деталей — один и тот же)
+```json
+{
+  "transportId": "tr_123",
+  "name": "ГАЗель NEXT",
+  "type": "TRUCK",
+  "status": "AVAILABLE",
+  "licensePlate": "А123ВЕ777"
+}
+```
+
+- **UpdateStatusRequest**
+```json
+{
+  "status": "MAINTENANCE"
+}
+```
+
+| Метод  | Эндпоинт                                       | Описание                                    | Роль                   |
+| ------ | ---------------------------------------------- | ------------------------------------------- | ---------------------- |
+| POST   | `/api/v1/vehicles`                             | Создать ТС. Возвращает `VehicleResponse`.   | `SUPERVISOR`           |
+| GET    | `/api/v1/vehicles/{vehicleId}`                 | Получить ТС по ID.                          | `DRIVER`, `SUPERVISOR` |
+| PUT    | `/api/v1/vehicles/{vehicleId}`                 | Обновить ТС (name, licensePlate).           | `SUPERVISOR`           |
+| DELETE | `/api/v1/vehicles/{vehicleId}`                 | Удалить ТС (если нет активного назначения). | `SUPERVISOR`           |
+| PATCH  | `/api/v1/vehicles/{vehicleId}/status`          | Сменить статус (`AVAILABLE`/`MAINTENANCE`). | `SUPERVISOR`           |
+| GET    | `/api/v1/vehicles?type=TRUCK&status=AVAILABLE` | Список ТС с фильтрацией. Пагинация.         | `DRIVER`, `SUPERVISOR` |
+
+**Статусы** (enum)
+```text
+AVAILABLE       - свободен
+ON_ASSIGNMENT   - назначен водителю (ставится автоматически)
+MAINTENANCE     - на ремонте
+```
+
+**Типы** (enum)
+```text
+CAR
+TRUCK
+```
+
+
+
+
+
+
+
 
 ---
 ## Назначение водителя:
@@ -125,10 +210,10 @@
 | DELETE | `/api/v1/transports/{transportId}/assign/{userId}`                      | Отвязать указанного пользователя от ТС. `userId` обязателен. Тела ответа нет.                                 | `SUPERVISOR`                                      |
 | DELETE | `/api/v1/transports/{transportId}/assign/current`                       | Отвязать текущего пользователя от ТС. Тела ответа нет.                                                        | `DRIVER` (только себя)                            |
 | GET    | `/api/v1/transports/{transportId}/assign`                               | Узнать, какой пользователь назначен на заданное ТС. Ответ: объект назначения(или `404`, если нет назначения). | `DRIVER` (только себя), <br>`SUPERVISOR` (любого) |
-| GET    | `/api/v1/drivers`                                                       | Список всех водителей. Ответ: список id пользователей                                                         | `SUPERVISOR`                                      |
-| GET    | `/api/v1/drivers?available=true`/ `/api/v1/drivers?available=false`     | Список свободных/ занятых водителей . Ответ: список id пользователей                                          | `SUPERVISOR`                                      |
-| GET    | `/api/v1/transports`                                                    | Список всех  ТС с необязат-й пагинацией. Ответ: список объектов назначения                                    | `DRIVER`, `SUPERVISOR`                            |
-| GET    | `/api/v1/transports?assigned=true`/ `/api/v1/transports?assigned=false` | Список свободных/ занятых ТС . Ответ: список объектов назначения                                              | `DRIVER`, `SUPERVISOR`                            |
+| GET    | `/api/v1/drivers`                                                       | Список всех существующих водителей. Возвращает список DTO объектов водитель                                   | `SUPERVISOR`                                      |
+| GET    | `/api/v1/drivers?available=true`/ `/api/v1/drivers?available=false`     | Список свободных/ занятых водителей . Возвращает список DTO объектов водитель                                 | `SUPERVISOR`                                      |
+| GET    | `/api/v1/transports`                                                    | Список всех  ТС с необязат-й пагинацией. Ответ: список DTO объектов транспорта                                | `DRIVER`, `SUPERVISOR`                            |
+| GET    | `/api/v1/transports?assigned=true`/ `/api/v1/transports?assigned=false` | Список свободных/ занятых ТС . Ответ: список DTO объектов транспорта                                          | `DRIVER`, `SUPERVISOR`                            |
 
 
 **Тело запроса:**
@@ -159,3 +244,8 @@
 - `SUPERVISOR` может назначить **любого пользователя**
 
 ---
+**Пагинация** при запросах списков: `?page=0&size=20&sort=createdAt,desc` 
+
+---
+
+
