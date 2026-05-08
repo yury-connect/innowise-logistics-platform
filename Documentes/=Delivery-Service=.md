@@ -1,3 +1,131 @@
+# **Delivery Service**  (Центральное ядро)
+
+### **Задачи:**
+- **Управление Сагой**: Инициация процесса 
+	  "Заказ -> Расчет -> Бронирование -> Оплата -> Назначение".    
+- **Валидация бизнес-цепочки**: Проверка возможности доставки 
+	  (вес груза из `Cargo` против лимитов ТС из `Transport`).    
+- **State Machine (Машина состояний)**: Жесткий контроль переходов статусов доставки.    
+- **Отказоустойчивость**: Обработка сбоев 
+	  (если оплата не прошла — разбронировать ресурсы).    
+- **Информационный хаб**: Сборка итогового объекта доставки для UI 
+	  из данных 3-х разных БД.    
+### **Стек:**
+- **Java 17 / Spring Boot 3.5**.    
+- **PostgreSQL**: Таблица `deliveries` (основной реестр).    
+- **Kafka**: Слушает `payment-status` и `transport-alerts`, 
+	  отправляет события в `notification-topic`.    
+- **Feign Clients**: `CargoClient`, `TransportClient`, `PaymentClient`.    
+
+---
+### **🔄 Жизненный цикл и Машина состояний** (State Machine)
+
+Мы строго следуем правилу: статус может измениться только вперед по цепочке, либо в `CANCELLED`.
+1. **CREATED**: Заявка создана. Запрошен счет в `Payment`.    
+2. **WAITING_PAYMENT (бывший PENDING)**: Счет выставлен, ресурсы (`Cargo` и `Vehicle`) забронированы.    
+3. **PAID**: (Переход по сигналу Kafka от `Payment`). Подтверждение оплаты.    
+4. **STORED (ACCEPTED)**: Водитель подтвердил прием груза на складе.    
+5. **IN_TRANSIT**: ТС в пути.    
+6. **DELIVERED**: Груз передан получателю. Финиш.    
+7. **CANCELLED**: Отмена на любом этапе до `DELIVERED`.    
+
+---
+### **Сущность Delivery (Опорный объект)**
+
+```Java
+@Entity
+@Table(name = "deliveries")
+public class Delivery {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(unique = true, nullable = false)
+    private String trackingNumber; // "TRK-12345678"
+
+    // Ссылки на внешние системы
+    private Long cargoId;
+    private String transportId; 
+    private UUID billId;
+    private Long clientId;
+
+    // География
+    private String departureAddress;
+    private String destinationAddress;
+    private Double distance; // км
+
+    @Enumerated(EnumType.STRING)
+    private DeliveryStatus status;
+
+    private BigDecimal totalCost; // Фиксируем сумму в момент расчета
+
+    private Instant createdAt;
+    private Instant updatedAt;
+}
+```
+
+---
+### **Эндпоинты** (API Strategy)
+
+#### **1. Клиентская зона (Роль: USER)**
+
+| **Метод** | **Эндпоинт**                   | **Описание**         | **Логика**                                                                                                                   |
+| --------- | ------------------------------ | -------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **POST**  | `/api/v1/deliveries`           | **Создать доставку** | Идет в `Cargo` за весом -> ищет ТС в `Transport` -> запрашивает счет в `Payment` -> сохраняет со статусом `WAITING_PAYMENT`. |
+| **GET**   | `/api/v1/deliveries/{trackNo}` | Трекинг              | Собирает из Pg текущий статус и местоположение.                                                                              |
+
+#### **2. Операционная зона (Роль: DRIVER)**
+
+|**Метод**|**Эндпоинт**|**Описание**|**Логика**|
+|---|---|---|---|
+|**PATCH**|`/api/v1/deliveries/{id}/status`|Смена статуса|Водитель ставит `STORED` (забрал) и `DELIVERED` (отдал).|
+
+#### **3. Управленческая зона (Роль: MANAGER / ADMIN)**
+
+|**Метод**|**Эндпоинт**|**Описание**|**Логика**|
+|---|---|---|---|
+|**GET**|`/api/v1/deliveries`|Список всех доставок|Пагинация и фильтрация по статусам/датам.|
+|**POST**|`/api/v1/deliveries/{id}/cancel`|Принудительная отмена|Шлет команды в Kafka на разбронирование товара и ТС.|
+
+---
+### **Детальный Flow создания доставки (Алгоритм дирижера):**
+
+1. **Прием**: Получаем `cargoId`, `clientId`, `route`.
+    
+2. **Cargo Check (Feign)**:    
+    - `GET /api/v1/internal/cargo/{id}/logistics`        
+    - Проверяем, доступен ли товар (`AVAILABLE`). Получаем его вес.
+        
+3. **Transport Search (Feign)**:    
+    - `GET /api/v1/internal/vehicles?status=AVAILABLE&minPayload=X`        
+    - Находим подходящую машину.
+    
+4. **Cost Calculation (Feign)**:    
+    - `POST /api/v1/internal/payments/calculate`        
+    - `Payment Service` считает: `Base(100) + Weight*10 + Dist*5`.
+    
+5. **Payment Billing**:    
+    - `POST /api/v1/internal/payments/bill`        
+    - Создаем счет. Получаем `billId`.
+    
+6. **Resource Reservation**:    
+    - `POST /api/v1/internal/cargo/reserve` (Статус товара -> `RESERVED`).        
+    - `PATCH /api/v1/internal/vehicles/{id}/status` (Статус ТС -> `ON_ASSIGNMENT`).
+    
+7. **Finalize**: Сохраняем `Delivery` в БД со статусом `WAITING_PAYMENT`. Шлем приветственное сообщение в `Notification Service`.
+
+---
+### **Обработка ЧП** (Failure Handling)
+
+- **Поломка ТС**: Если `Transport Service` шлет в Kafka сигнал "Vehicle Maintenance" для ТС, которое `ON_ASSIGNMENT`, `Delivery Service` автоматически пытается найти замену через `Transport Service`. Если замены нет — шлет алерт менеджеру.
+    
+- **Неоплата**: Если от `Payment Service` пришел сигнал `EXPIRED`, `Delivery Service` выполняет **компенсирующие транзакции**: освобождает товар и возвращает машину в пул `AVAILABLE`.
+
+
+---
+---
+---
+
 ## **Delivery Service** (Центральное ядро)
 ### Задачи:
 - Прием, валидация всей приходящей от заказчика информации;
@@ -13,12 +141,8 @@
 - DB: Postgres;
 - Kafka;
 
-
-**REDIS** - для кэширования тарифов или курсов валют
-
 ---
 упраздненный сервис, засовываем его в **Delivery Service**
-
 
 ## **Cargo Service**
 
