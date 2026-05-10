@@ -1,4 +1,4 @@
-## **Monitoring Service**
+## **Monitoring Logging Service**
 ### Задачи:
 - Мониторинг работы сервисов/ healscheack;
 - Отслеживание прохождения ;
